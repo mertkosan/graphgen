@@ -8,8 +8,8 @@ GraphGEN is a synthetic dynamic graph generator.
     ├── data                    # Datasets
     │   ├── <dataset>1          # Randomly generated graphs
     │   └── <dataset>2          
+    ├── generators              # Includes super GraphGEN class and sub classes
     ├── features.py             # Includes graph features/functions
-    ├── graphgen.py             # Includes GraphGEN class and related functions
     ├── main.py                 # Initial file to be run
     ├── utils.py                # Utility functions
     ├── TODOs                   # List of tasks to do
