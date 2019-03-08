@@ -25,7 +25,7 @@ class GraphGen:
                 for edges in graph.edges:
                     _writer.writerow({'timestamp': timestamp, 'source': edges[0], 'destination': edges[1]})
 
-        with open("../data/%s_labels.csv" % str(_dump_time), "w") as _csv_file:
+        with open("data/%s_labels.csv" % str(_dump_time), "w") as _csv_file:
             _field_names = ['timestamp', 'is_event']
             _writer = csv.DictWriter(_csv_file, fieldnames=_field_names)
             _writer.writeheader()
