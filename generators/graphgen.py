@@ -16,7 +16,7 @@ class GraphGen:
             raise Exception("The size of the graph/labels should be bigger than 0!")
 
         _dump_time = asctime()
-        with open("../data/%s_edges.csv" % str(_dump_time), "w") as _csv_file:
+        with open("data/%s_edges.csv" % str(_dump_time), "w") as _csv_file:
             _field_names = ['timestamp', 'source', 'destination']
             _writer = csv.DictWriter(_csv_file, fieldnames=_field_names)
             _writer.writeheader()
