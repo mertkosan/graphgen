@@ -73,7 +73,7 @@ feature_functions_artificial_data = [
     average_degree,
     max_degree,
     nx.density,
-    aprx.node_connectivity,  # Problematic with 1000 nodes
+    # aprx.node_connectivity,  # Problematic with 1000 nodes
     aprx.large_clique_size,
     aprx.average_clustering,
     length_maximal_matching,
@@ -85,6 +85,6 @@ feature_functions_artificial_data = [
     nx.is_connected,
     nx.number_connected_components,
     nx.is_biconnected,
-    nx.diameter,  # Problematic with 1000 nodes
+    # nx.diameter,  # Problematic with 1000 nodes
     nx.radius
 ]

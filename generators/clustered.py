@@ -47,9 +47,9 @@ class ClusteredDynamicGraph(GraphGen):
         if not self._is_chain:
             self._n += int(np.round(np.random.exponential(self._increase_n)))
             if self._p > self._threshold:
-                self._p += np.random.normal(0, 0.005)
+                self._p += np.random.normal(0, 0.001)
             else:
-                self._p += np.random.normal(0.005, 0.01)
+                self._p += np.random.normal(0.001, 0.001)
         # TODO : elif self.chain...
 
     def _construct_graphs(self, graph_count):
@@ -58,13 +58,15 @@ class ClusteredDynamicGraph(GraphGen):
             self._graphs.append(gi)
             self._next_parameters()
             print(self._n, self._p)
+        print('Graphs are constructed!')
 
     def _generate_features(self):
-        for subgraph in self._graphs:
+        for i, subgraph in enumerate(self._graphs):
             graph_features = []
             for func in feature_functions:
                 graph_features.append(func(subgraph))
             self._features.append(graph_features)
+            print("Features of Graph %d is constructed!" % i)
 
     def _normalize_features(self):
         self._features = utils.normalize_min_max(self._features)
