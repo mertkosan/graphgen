@@ -93,5 +93,3 @@ class ClusteredDynamicGraph(GraphGen):
                 self._labels.append(1)
             else:
                 self._labels.append(0)
-
-ClusteredDynamicGraph(100)
