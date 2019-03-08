@@ -47,9 +47,9 @@ class ClusteredDynamicGraph(GraphGen):
         if not self._is_chain:
             self._n += int(np.round(np.random.exponential(self._increase_n)))
             if self._p > self._threshold:
-                self._p += np.random.normal(0, 0.01)
+                self._p += np.random.normal(-0.001, 0.002)
             else:
-                self._p += np.random.normal(0.01, 0.01)
+                self._p += np.random.normal(0.005, 0.01)
         # TODO : elif self.chain...
 
     def _construct_graphs(self, graph_count):
