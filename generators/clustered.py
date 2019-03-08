@@ -8,7 +8,7 @@ from generators.graphgen import GraphGen
 
 
 class ClusteredDynamicGraph(GraphGen):
-    def __init__(self, graph_count, n=100, p=0.1, threshold=0.2, seed=None, is_chain=False, min_cluster_no=10):
+    def __init__(self, graph_count, n=100, increase_n=0.1, p=0.1, threshold=0.2, seed=None, is_chain=False, min_cluster_no=10):
         super().__init__()
 
         self._graphs = []  # graphs
@@ -22,6 +22,8 @@ class ClusteredDynamicGraph(GraphGen):
         self._threshold = threshold  # threshold value that p will be stable
         self._is_chain = is_chain  # is the dynamic graph chain?
         self._time_difference = True  # will it be looked difference of features?
+        self._increase_n = increase_n
+        # TODO: increase_n is the probability of increase n with exponential parameter, make it more elegant
 
         self._seed = seed
         self._min_cluster_no = min_cluster_no
@@ -43,7 +45,7 @@ class ClusteredDynamicGraph(GraphGen):
 
     def _next_parameters(self):
         if not self._is_chain:
-            self._n += int(np.round(np.random.exponential(1)))
+            self._n += int(np.round(np.random.exponential(self._increase_n)))
             if self._p > self._threshold:
                 self._p += np.random.normal(0, 0.01)
             else:
